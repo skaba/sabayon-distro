@@ -2,7 +2,7 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name><![CDATA[serkan]]></name>
+    <name><![CDATA[sabayon-distro]]></name>
     <description><![CDATA[Serkan's overlay]]></description>
     <homepage>https://skaba/sabayon-distro</homepage>
     <owner type="person">
