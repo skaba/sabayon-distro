@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[serkan]]></name>
+    <description><![CDATA[Serkan's overlay]]></description>
+    <homepage>https://skaba/sabayon-distro</homepage>
+    <owner type="person">
+      <email>serkan_kaba@yahoo.com</email>
+      <name><![CDATA[Serkan Kaba]]></name>
+    </owner>
+    <source type="git">git://github.com/skaba/sabayon-distro.git</source>
+    <source type="git">https://github.com/skaba/sabayon-distro.git</source>
+    <feed>https://github.com/skaba/sabayon-distro/commits/master.atom</feed>
+  </repo> 
+</repositories>
