@@ -138,6 +138,8 @@ _transmission_src_prepare() {
 		die "Please switch to PATCHES. KTHXBYE."
 	fi
 
+        rm -rfv m4/glib-gettext.m4 || die "Error removing glib-gettext.m4"
+
 	if _transmission_is ""; then
 		eapply_user # it's mandatory
 		return
