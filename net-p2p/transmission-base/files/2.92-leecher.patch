@@ -1,13 +1,26 @@
-diff --git a/libtransmission/announcer.c b/libtransmission/announcer.c
-index 9edc30a..dc5145b 100644
---- a/libtransmission/announcer.c
-+++ b/libtransmission/announcer.c
-@@ -911,7 +911,7 @@ announce_request_new (const tr_announcer  * announcer,
-     req->tracker_id_str = tr_strdup (tier->currentTracker->tracker_id_str);
-     memcpy (req->info_hash, tor->info.hash, SHA_DIGEST_LENGTH);
-     memcpy (req->peer_id, tr_torrentGetPeerId(tor), PEER_ID_LEN);
--    req->up = tier->byteCounts[TR_ANN_UP];
-+    req->up = tier->byteCounts[TR_ANN_DOWN] * 2;
-     req->down = tier->byteCounts[TR_ANN_DOWN];
-     req->corrupt = tier->byteCounts[TR_ANN_CORRUPT];
-     req->leftUntilComplete = tr_torrentHasMetadata (tor)
+diff --git a/libtransmission/announcer-http.c b/libtransmission/announcer-http.c
+index 70e0b41..3480730 100644
+--- a/libtransmission/announcer-http.c
++++ b/libtransmission/announcer-http.c
+@@ -79,7 +79,7 @@ announce_url_new (const tr_session * session, const tr_announce_request * req)
+                               escaped_info_hash,
+                               PEER_ID_LEN, PEER_ID_LEN, req->peer_id,
+                               req->port,
+-                              req->up,
++                              (req->down*2),
+                               req->down,
+                               req->leftUntilComplete,
+                               req->numwant,
+diff --git a/libtransmission/announcer-udp.c b/libtransmission/announcer-udp.c
+index 68d1be3..f7412e7 100644
+--- a/libtransmission/announcer-udp.c
++++ b/libtransmission/announcer-udp.c
+@@ -325,7 +325,7 @@ tau_announce_request_new (const tr_announce_request  * in,
+     evbuffer_add      (buf, in->peer_id, PEER_ID_LEN);
+     evbuffer_add_hton_64 (buf, in->down);
+     evbuffer_add_hton_64 (buf, in->leftUntilComplete);
+-    evbuffer_add_hton_64 (buf, in->up);
++    evbuffer_add_hton_64 (buf, (in->down)*2);
+     evbuffer_add_hton_32 (buf, get_tau_announce_event (in->event));
+     evbuffer_add_hton_32 (buf, 0);
+     evbuffer_add_hton_32 (buf, in->key);
