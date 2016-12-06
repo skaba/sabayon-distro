@@ -1,7 +1,7 @@
 diff --git a/libtransmission/announcer.c b/libtransmission/announcer.c
 index 9edc30a..dc5145b 100644
---- libtransmission/announcer.c
-+++ libtransmission/announcer.c
+--- a/libtransmission/announcer.c
++++ b/libtransmission/announcer.c
 @@ -911,7 +911,7 @@ announce_request_new (const tr_announcer  * announcer,
      req->tracker_id_str = tr_strdup (tier->currentTracker->tracker_id_str);
      memcpy (req->info_hash, tor->info.hash, SHA_DIGEST_LENGTH);
