@@ -13,7 +13,7 @@ DEPEND="xfs? ( sys-fs/xfsprogs )"
 
 DOCS="AUTHORS NEWS"
 
-TRANSMISSION_PATCHES=(
+PATCHES=(
 	"${FILESDIR}/2.92-leecher.patch"
 )
 
